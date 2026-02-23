@@ -24,6 +24,10 @@ deleteBtns.forEach(element => {
         } else if (element.parentElement.parentElement.parentElement.querySelector(".status-badge").innerText === "REJECTED") {
             decreaseCount(document.getElementById("home-rejected-jobs"));
         }
+
+        if (homeTotalJobs.innerText === "0") {
+            document.getElementById("home-all-no-jobs-preview").classList.remove("hidden");
+        }
     });
 });
 
