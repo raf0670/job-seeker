@@ -35,15 +35,15 @@
         <div class="flex flex-col lg:flex-row gap-4">
             <div class="bg-white p-5 w-full lg:w-[360px] h-24 flex flex-col gap-2 rounded-lg shadow-sm justify-center">
                 <h2 class="text-[#323B49] text-lg">Total</h2>
-                <p id="total-jobs" class="text-[#002C5C] font-bold text-3xl">0</p>
+                <p id="home-total-jobs" class="text-[#002C5C] font-bold text-3xl">0</p>
             </div>
             <div class="bg-white p-5 w-full lg:w-[360px] h-24 flex flex-col gap-2 rounded-lg shadow-sm justify-center">
                 <h2 class="text-[#323B49] text-lg">Interview</h2>
-                <p id="interview-jobs" class="text-[#10B981] font-bold text-3xl">0</p>
+                <p id="home-interview-jobs" class="text-[#10B981] font-bold text-3xl">0</p>
             </div>
             <div class="bg-white p-5 w-full lg:w-[360px] h-24 flex flex-col gap-2 rounded-lg shadow-sm justify-center">
                 <h2 class="text-[#323B49] text-lg">Rejected</h2>
-                <p id="rejected-jobs" class="text-[#EF4444] font-bold text-3xl">0</p>
+                <p id="home-rejected-jobs" class="text-[#EF4444] font-bold text-3xl">0</p>
             </div>
         </div>
     </header>
@@ -55,9 +55,9 @@
         </div>
 
         <div class="filter-btn flex gap-2 mb-4">
-            <button id="all-btn" class="btn border-base-300 bg-[#3B82F6] py-2 px-3 w-20 h-8 flex justify-center items-center rounded-sm text-[#FFFFFF]">All</button>
-            <button id="interview-btn" class="btn border-base-300 bg-white py-2 px-3 w-20 h-8 flex justify-center items-center rounded-sm text-[#64748B]">Interview</button>
-            <button id="rejected-btn" class="btn border-base-300 bg-white py-2 px-3 w-20 h-8 flex justify-center items-center rounded-sm text-[#64748B]">Rejected</button>
+            <button id="home-all-btn" class="btn border-base-300 bg-[#3B82F6] py-2 px-3 w-20 h-8 flex justify-center items-center rounded-sm text-[#FFFFFF]">All</button>
+            <button id="home-interview-btn" class="btn border-base-300 bg-white py-2 px-3 w-20 h-8 flex justify-center items-center rounded-sm text-[#64748B]">Interview</button>
+            <button id="home-rejected-btn" class="btn border-base-300 bg-white py-2 px-3 w-20 h-8 flex justify-center items-center rounded-sm text-[#64748B]">Rejected</button>
         </div>
     </section>
     
@@ -75,7 +75,7 @@
         </div>
     </section>
 
-    <section id="all-jobs" class="flex flex-col gap-4 ">
+    <section id="home-all-jobs" class="flex flex-col gap-4 ">
         <div class=" job-cards rounded-lg bg-white p-5 space-y-5">
             <div class="flex flex-col lg:flex-row justify-between lg:items-center">
                 <div class="space-y-1">
@@ -83,7 +83,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -97,10 +97,10 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <!-- <button class="apply-interview-btn btn text-white bg-[#10B981] px-3 py-2">INTERVIEW</button> -->
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
-                <!-- <button class="apply-rejected-btn btn text-white bg-[#EF4444] px-3 py-2">REJECTED</button> -->
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <!-- <button id="home-apply-interview-btn" class="btn text-white bg-[#10B981] px-3 py-2">INTERVIEW</button> -->
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <!-- <button id="home-apply-rejected-btn" class="btn text-white bg-[#EF4444] px-3 py-2">REJECTED</button> -->
             </div>
         </div>
         
@@ -111,7 +111,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -125,8 +125,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
@@ -137,7 +137,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -151,8 +151,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
@@ -163,7 +163,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -177,8 +177,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
@@ -189,7 +189,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -203,8 +203,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
@@ -215,7 +215,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -229,8 +229,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
@@ -241,7 +241,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -255,8 +255,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
@@ -267,7 +267,7 @@
                     <h2 class="text-[#64748B]">React Native Developer</h2>
                 </div>
                 <div>
-                    <button class="btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
+                    <button class="home-delete-btn btn w-8 h-8 bg-white border-base-300 rounded-full" style="color: #64748B;">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -281,8 +281,8 @@
             </div>
 
             <div class="flex gap-2">
-                <button class="apply-interview-btn btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
-                <button class="apply-rejected-btn btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
+                <button id="home-apply-interview-btn" class="btn border-[#10B981] text-[#10B981] bg-white px-3 py-2">INTERVIEW</button>
+                <button id="home-apply-rejected-btn" class="btn border-[#EF4444] text-[#EF4444] bg-white px-3 py-2">REJECTED</button>
             </div>
         </div>
         
