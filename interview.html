@@ -51,7 +51,7 @@
     <section class="mt-5 ">
         <div class="flex justify-between mb-6">
             <h1 class="text-[#002C5C]">Available Jobs</h1>
-            <h1 class="text-[#64748B]"><span id="available-jobs">0</span> jobs</h1>
+            <h1 class="text-[#64748B]"><span id="interview-available-jobs">0</span> jobs</h1>
         </div>
 
         <div class="filter-btn flex gap-2 mb-4">
@@ -61,7 +61,7 @@
         </div>
     </section>
     
-    <section id="interview-no-jobs-preview" class="">
+    <section id="interview-no-jobs-preview" class="hidden">
         <div class="px-0 py-0 lg:px-10 lg:py-16 border border-base-300 rounded-lg flex flex-col items-center">
             <div>
                 <img class="pb-5" src="./jobs.png" alt="">
@@ -73,6 +73,10 @@
                 <p class="text-[#64748B]">Check back soon for new job opportunities</p>
             </div>
         </div>
+    </section>
+
+    <section id="interview-container">
+
     </section>
 
     <script src="./js/home.js"></script>
