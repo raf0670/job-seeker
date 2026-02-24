@@ -128,3 +128,61 @@ jobCardsList.forEach((jobCard, index) => {
         rejectedContainer.append(clone);
     });
 });
+
+interviewContainer.addEventListener("click", function(event) {
+    const rejBtn = event.target.closest("#home-apply-rejected-btn");
+    if (!rejBtn) return;
+
+    const cardToMove = rejBtn.closest(".home-job-cards");
+    const jobId = cardToMove.id.replace("clone-", "");
+    const statusBadge = cardToMove.querySelector(".status-badge");
+
+    decreaseCount(document.getElementById("home-interview-jobs"));
+    increaseCount(document.getElementById("home-rejected-jobs"));
+
+    statusBadge.innerText = "REJECTED";
+    statusBadge.classList.remove("bg-[#10B981]", "text-white");
+    statusBadge.classList.add("bg-[#EF4444]", "text-white");
+
+    const originalCard = document.querySelector(`[data-job-id="${jobId}"]`);
+    if (originalCard) {
+        const originalBadge = originalCard.querySelector(".status-badge");
+        originalBadge.innerText = "REJECTED";
+        originalBadge.className = statusBadge.className;
+    }
+
+    rejectedContainer.append(cardToMove);
+
+    if (document.getElementById("home-interview-jobs").innerText === "0") {
+        show("interview-no-jobs-preview");
+    }
+});
+
+rejectedContainer.addEventListener("click", function(event) {
+    const intBtn = event.target.closest("#home-apply-interview-btn");
+    if (!intBtn) return;
+
+    const cardToMove = intBtn.closest(".home-job-cards");
+    const jobId = cardToMove.id.replace("clone-", "");
+    const statusBadge = cardToMove.querySelector(".status-badge");
+    
+    decreaseCount(document.getElementById("home-rejected-jobs"));
+    increaseCount(document.getElementById("home-interview-jobs"));
+    
+    statusBadge.innerText = "INTERVIEW";
+    statusBadge.classList.remove("bg-[#EF4444]", "text-white");
+    statusBadge.classList.add("bg-[#10B981]", "text-white");
+
+    const originalCard = document.querySelector(`[data-job-id="${jobId}"]`);
+    if (originalCard) {
+        const originalBadge = originalCard.querySelector(".status-badge");
+        originalBadge.innerText = "INTERVIEW";
+        originalBadge.className = statusBadge.className;
+    }
+
+    interviewContainer.append(cardToMove);
+
+    if (document.getElementById("home-rejected-jobs").innerText === "0") {
+        show("rejected-no-jobs-preview");
+    }
+});
