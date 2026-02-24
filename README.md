@@ -1,5 +1,9 @@
 <i>Answer 1:</i> getElementById returns a single, unique element by its ID from the document.<br>getElementsByClassName returns a HTMLCollection of all elements with a specific class that updates automatically if the DOM changes.<br>querySelector uses CSS selector syntax to return only the first matching element in the document.<br>querySelectorAll returns a NodeList of all matching elements.<br>
+
 <i>Answer 2:</i> use document.createElement("tag-name") and then use .append() or .prepend() or .before() or .after() methods.<br>
+
 <i>Answer 3:</i> Event bubbling is where an event starts at the specific element (target) and then "bubbles up" through its ancestors in the DOM tree until it reaches the window.<br>
+
 <i>Answer 4:</i> Event delegation is a technique where you attach a single event listener to a parent element instead of attaching multiple listeners to every individual child element. Eventually the event bubbles up.<br>
+
 <i>Answer 5:</i> preventDefault() stops the browser's default behavior and stopPropagation() stops the event from traveling up the DOM tree.
