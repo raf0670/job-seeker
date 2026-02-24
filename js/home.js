@@ -1,50 +1,93 @@
 const homeTotalJobs = document.getElementById("home-total-jobs");
-homeTotalJobs.innerText = document.getElementsByClassName("job-cards").length;
+homeTotalJobs.innerText = document.getElementsByClassName("home-job-cards").length;
 document.getElementById("available-jobs").innerText = homeTotalJobs.innerText;
 
-// filter change actions
+// filter change color actions
 document.getElementById("home-interview-btn").addEventListener("click", function() {
-    filterChange("home-all-btn", "home-interview-btn");
+    filterChange("home-interview-btn");
+    showOnly("interview-container");
+    document.getElementById("available-jobs").innerText = document.getElementById("home-interview-jobs").innerText;
+    if (document.getElementById("available-jobs").innerText === "0") {
+        show("interview-no-jobs-preview");
+    }
 });
 document.getElementById("home-rejected-btn").addEventListener("click", function() {
-    filterChange("home-all-btn", "home-rejected-btn");
+    filterChange("home-rejected-btn");
+    showOnly("rejected-container");
+    document.getElementById("available-jobs").innerText = document.getElementById("home-rejected-jobs").innerText;
+    if (document.getElementById("available-jobs").innerText === "0") {
+        show("rejected-no-jobs-preview");
+    }
+});
+document.getElementById("home-all-btn").addEventListener("click", function() {
+    filterChange("home-all-btn");
+    showOnly("home-all-jobs");
+    document.getElementById("available-jobs").innerText = homeTotalJobs.innerText;
+    if (document.getElementById("available-jobs").innerText === "0") {
+        show("home-all-no-jobs-preview");
+    }
 });
 
 const deleteBtns = document.querySelectorAll(".home-delete-btn");
 // console.log(deleteBtns);
 deleteBtns.forEach(element => {
     element.addEventListener("click", function() {
-        this.closest(".job-cards").remove();
-        // console.log(document.getElementsByClassName("job-cards").length);
+        const toBeDeleted = this.closest(".home-job-cards");
+        const status = toBeDeleted.querySelector(".status-badge").innerText;
+        const jobId = toBeDeleted.getAttribute("data-job-id");
         decreaseCount(homeTotalJobs);
         decreaseCount(document.getElementById("available-jobs"));
-
-        if (element.parentElement.parentElement.parentElement.querySelector(".status-badge").innerText === "INTERVIEW") {
+        
+        if (status === "INTERVIEW") {
             decreaseCount(document.getElementById("home-interview-jobs"));
-        } else if (element.parentElement.parentElement.parentElement.querySelector(".status-badge").innerText === "REJECTED") {
-            decreaseCount(document.getElementById("home-rejected-jobs"));
-        }
 
+            const clone = document.getElementById(`clone-${jobId}`);
+            if (clone) {
+                clone.remove();
+            }
+        } else if (status === "REJECTED") {
+            decreaseCount(document.getElementById("home-rejected-jobs"));
+
+            const clone = document.getElementById(`clone-${jobId}`);
+            if (clone) clone.remove();
+        }
+        
+        toBeDeleted.remove();
         if (homeTotalJobs.innerText === "0") {
             document.getElementById("home-all-no-jobs-preview").classList.remove("hidden");
         }
     });
 });
 
-const jobCardsList = document.querySelectorAll(".job-cards");
+const jobCardsList = document.querySelectorAll(".home-job-cards");
+const interviewContainer = document.getElementById("interview-container");
+const rejectedContainer = document.getElementById("rejected-container");
 
-jobCardsList.forEach(jobCard => {
+jobCardsList.forEach((jobCard, index) => {
+    const uniqueId = `job-card-${index}`;
+    jobCard.setAttribute("data-job-id", uniqueId);
+
     const statusBadge = jobCard.querySelector(".status-badge");
-
+    const interviewBtn = jobCard.querySelector("#home-apply-interview-btn");
+    const rejectedBtn = jobCard.querySelector("#home-apply-rejected-btn");
+    
     const resetBadge = () => {
         statusBadge.classList.remove("text-white", "bg-[#10B981]", "bg-[#EF4444]");
         statusBadge.classList.add("bg-[#EEF4FF]", "text-[#002C5C]");
         // statusBadge.innerText = "NOT APPLIED";
     }
-
-    jobCard.querySelector("#home-apply-interview-btn").addEventListener("click", function() {
+    
+    interviewBtn.addEventListener("click", function() {
+        if (statusBadge.innerText === "INTERVIEW") {
+            return;
+        }
         if (statusBadge.innerText === "REJECTED") {
             decreaseCount(document.getElementById("home-rejected-jobs"));
+            
+            const existingClone = document.getElementById(`clone-${uniqueId}`);
+            if (existingClone) {
+                existingClone.remove();
+            }
         }
         if (statusBadge.innerText !== "INTERVIEW") {
             resetBadge();
@@ -54,12 +97,23 @@ jobCardsList.forEach(jobCard => {
             statusBadge.innerText = "INTERVIEW";
         }
         
-        
+        const clone = jobCard.cloneNode(true);
+        clone.id = `clone-${uniqueId}`;
+        interviewContainer.append(clone);
+        // console.log();
     });
     
-    jobCard.querySelector("#home-apply-rejected-btn").addEventListener("click", function() {
+    rejectedBtn.addEventListener("click", function() {
+        if (statusBadge.innerText === "REJECTED") {
+            return;
+        }
         if (statusBadge.innerText === "INTERVIEW") {
             decreaseCount(document.getElementById("home-interview-jobs"));
+
+            const existingClone = document.getElementById(`clone-${uniqueId}`);
+            if (existingClone) {
+                existingClone.remove();
+            }
         }
         if (statusBadge.innerText !== "REJECTED") {
             resetBadge();
@@ -68,7 +122,9 @@ jobCardsList.forEach(jobCard => {
             statusBadge.classList.add("text-white", "bg-[#EF4444]");
             statusBadge.innerText = "REJECTED";
         }
-
-
+        
+        const clone = jobCard.cloneNode(true);
+        clone.id = `clone-${uniqueId}`;
+        rejectedContainer.append(clone);
     });
 });
